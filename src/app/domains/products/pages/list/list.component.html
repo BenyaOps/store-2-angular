@@ -1,0 +1,13 @@
+<div>
+  <div class="navbar">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="grid grid-cols-3">
+    <app-product [title]="'Prodict 1'" [price]="12" [imgSrc]="'https://picsum.photos/120/120'"
+    (addToCart)="fromProduct($event)"
+    />
+    <app-product [title]="'Prodict 1'" [price]="122" [imgSrc]="'https://picsum.photos/120/120'" />
+    <app-product [title]="'Prodict 1'" [price]="42" [imgSrc]="'https://picsum.photos/120/120'" />
+    <app-product [title]="'Prodict 1'" [price]="100" [imgSrc]="'https://picsum.photos/120/120'" />
+  </div>
+</div>
