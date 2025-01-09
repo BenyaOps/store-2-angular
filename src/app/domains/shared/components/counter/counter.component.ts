@@ -41,10 +41,13 @@ export class CounterComponent {
     console.log('-'.repeat(10));
     console.log('duration', this.duration);
     console.log('message', this.message);
-    window.setInterval(() => {
-      console.log('counter');
-      this.counter.update(statePrev => statePrev + 1);
-    }, 1000);
+    if (typeof window !== "undefined") {
+
+      this.counterRef = window.setInterval(() => {
+        console.log('counter');
+        this.counter.update(statePrev => statePrev + 1);
+      }, 1000);
+    }
 
   }
   ngAfterViewInit() {
@@ -56,5 +59,10 @@ export class CounterComponent {
     // evita memory leaks and unsubscribe from observables
     console.log('ngOnDestroy');
     console.log('-'.repeat(10));
+    if (typeof window !== "undefined") {
+      window.clearInterval(this.counterRef);
+      console.log('clearInterval');
+
+    }
   }
 }
