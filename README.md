@@ -9,9 +9,14 @@ Empezando
 | Constructor  |
 | ngOnChanges  | 
 | ngOnInit | 
-| ngDoCheck | 
+| ngDoCheck | By
 | ngAfterContentInit | 
 | ngAfterContentChecked | 
 | ngAfterViewInit | 
 | ngAfterViewCheck | 
 | ngOnDestroy| 
+
+en <variable> !: <tipo>  en "!:" significa que, cuando yo considere voy a inicializar la variable
+
+el decorator @ViewChild('container') sirve para hacer referencia a un elemento del dom
+Por ejemplo: <div #container>, habilita un "this.container.nativeElement" en vez de "$document.getElementById('container')" 

@@ -1,9 +1,12 @@
-<div>
+<div class="px-10 ">
+  <h1 class="text-lg font-bold">about</h1>
+  <p class="text-xs">ore laboriosam quasi faci  lis sunt corporis. Optio expedita aperiam et!</p>
   <div>
     <input type="number" [value]="duration()"  (change)="changeDuration($event)" />
     <input type="text" [value]="message()"  (change)="changeMessage($event)" />
   </div>
-  <p></p>
-  <p></p>
+  <h2>Numero de clientes</h2>
   <app-counter [duration]="duration()" [message]="message()" *ngIf="duration() > 0" />
+
+    <app-wave-audio audioUrl="/assets/audio.mp3"/>
 </div>
