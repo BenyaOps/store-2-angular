@@ -1,13 +1,17 @@
 <div>
+  <app-header [cart]="productsCart()"></app-header>
   <div class="navbar">
     <app-navbar></app-navbar>
   </div>
-  <div class="grid grid-cols-3">
-    <app-product [title]="'Prodict 1'" [price]="12" [imgSrc]="'https://picsum.photos/120/120'"
-    (addToCart)="fromProduct($event)"
-    />
-    <app-product [title]="'Prodict 1'" [price]="122" [imgSrc]="'https://picsum.photos/120/120'" />
-    <app-product [title]="'Prodict 1'" [price]="42" [imgSrc]="'https://picsum.photos/120/120'" />
-    <app-product [title]="'Prodict 1'" [price]="100" [imgSrc]="'https://picsum.photos/120/120'" />
+  <div class="container max-w-screen-xl m-auto">
+    <div class=" grid grid-cols-4 gap-4">
+      <app-product
+      *ngFor="let product of products()"
+      [title]="product.title"
+      [price]="product.price"
+      [imgSrc]="product.image"
+      (addToCart)="fromProduct($event)"
+      />
+    </div>
   </div>
 </div>
