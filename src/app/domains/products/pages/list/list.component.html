@@ -1,5 +1,5 @@
 <div>
-  <app-header [cart]="productsCart()"></app-header>
+  <app-header></app-header>
   <div class="navbar">
     <app-navbar></app-navbar>
   </div>
@@ -9,7 +9,7 @@
       *ngFor="let product of products()"
       [title]="product.title"
       [price]="product.price"
-      [imgSrc]="product.image"
+      [imgSrc]="product.images[0]"
       (addToCart)="fromProduct($event)"
       />
     </div>
