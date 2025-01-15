@@ -1,8 +1,12 @@
-<div>
-  <div class="navbar">
-
+<div class="flex space-x-4">
+  <div class="navbar w-60">
+    <ul>
+      <li *ngFor="let category of categories()">
+        <a href="">{{ category.name }}</a>
+      </li>
+    </ul>
   </div>
-  <div class="container max-w-screen-xl m-auto">
+  <div class="container max-w-screen-xl m-auto w-full">
     <div class=" grid grid-cols-4 gap-4">
       <!--<app-product
       *ngFor="let product of products()"
