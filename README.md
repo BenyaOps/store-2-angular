@@ -65,3 +65,13 @@ Este metodo lo invocaremos en el ListComxtonent, dentro del ngOnInit; una vez po
 
 --Pipes en Angular--
 los pipes(tuberias) sirven para transformar los datos antes de mostrarlos en la vista. Se utilizan para formatear fechas, números, cadenas de texto, entre otros. También se pueden crear pipes personalizados para aplicar transformaciones específicas a los datos.
+
+--usando query params en la URL--
+Dentro de nuestro ListComponent, importamos el RouterLinkWithHref, 
+
+--lazloading  codde splitting --
+Primero veamos los tiempos de carga de Javascript: descarga Js, parsear, compilar y ejecutar.
+el mayor tiempo es de descarga. POr esto podemos, este es el paso que podemos optmizar en peso.
+En Angular tenemos muchos archivos typescrit, para traducirlo a JS el trabajo lo hace el empaquetador de Angular. COnvirtiendo todos los compoentes, directivas, servicios y  llevandolo a un MainJS.
+La tecnica de lazyloading y codespliting, es no dejar todo en el MainJS, sino particionarlo en varios Chunk JS (que son varios pedazos del codigo)
+Nuestro trabajo es decirle al empequetador como manejar esos Chunks, cuales cargar primero.

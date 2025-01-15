@@ -11,7 +11,7 @@ import { HeaderComponent } from "../../../shared/components/header/header.compon
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
-export class AboutComponent {
+export default class AboutComponent {
   duration = signal(100);
   message = signal('hello');
 
