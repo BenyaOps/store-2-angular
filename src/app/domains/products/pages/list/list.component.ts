@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, Input, SimpleChanges, inject, signal } from '@angular/core';
 import { ProductComponent } from './../../components/product/product.component';
 import { NavbarComponent } from '@app/domains/shared/components/navbar/navbar.component';
 import { Product } from '@app/domains/shared/models/product.model';
@@ -8,11 +8,12 @@ import { CartService } from '@app/domains/shared/services/cart.service';
 import { ProductService } from '@app/domains/shared/services/product.service';
 import { CategoriesService } from '@app/domains/shared/services/categories.service';
 import { Category } from '@app/domains/shared/models/category.model';
+import { RouterLinkWithHref } from '@angular/router';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, ProductComponent],
+  imports: [CommonModule, ProductComponent, RouterLinkWithHref],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
@@ -22,15 +23,24 @@ export class ListComponent {
   categories = signal<Category[]>([]);
   productsCart = signal<Product[]>([]);
 
+  @Input() category_id?: string | null;
+
   private cartService = inject(CartService);
   private productService = inject(ProductService);
   private categoriesService = inject(CategoriesService);
 
   ngOnInit() {
-    this.getProducts();
+    //this.getProducts();
     this.getCategories();
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    const cat_id = changes['category_id'];
+    console.log('List component changes: ',cat_id.currentValue);
+    if (cat_id) {
+      this.getProducts();
+    }
+  }
   cart = this.cartService.cart;
   constructor() {
 
@@ -49,7 +59,7 @@ export class ListComponent {
   }
 
   private getProducts() {
-    this.productService.getProduct().subscribe({
+    this.productService.getProduct(this.category_id).subscribe({
       next: (products) => {
         console.log('Products fetched: ', products);
         this.products.set(products);
