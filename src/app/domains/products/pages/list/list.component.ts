@@ -25,6 +25,7 @@ export class ListComponent {
   ngOnInit() {
     this.productService.getProduct().subscribe({
       next: (products) => {
+        console.log('Products fetched: ', products);
         this.products.set(products);
       },
       error: (error) => {
@@ -36,40 +37,7 @@ export class ListComponent {
 
   cart = this.cartService.cart;
   constructor() {
-    const initProducts: Product[] = [
-      {
-        id: 1,
-        title: 'Product 1',
-        description: 'Description product 1',
-        price: 100,
-        images: ['https://picsum.photos/300/250?random=1']
-      },
-      {
-        id: 2,
-        title: 'Product 2',
-        price: 200,
-        images: ['https://picsum.photos/300/250?random=1']
-      },
-      {
-        id: 3,
-        title: 'Product 3',
-        price: 300,
-        images: ['https://picsum.photos/300/250?random=1']
-      },
-      {
-        id: 4,
-        title: 'Product 4',
-        price: 400,
-        images: ['https://picsum.photos/300/250?random=1']
-      },
-      {
-        id: 5,
-        title: 'Product 5',
-        price: 500,
-        images: ['https://picsum.photos/300/250?random=1']
-      }
-    ];
-    this.products.set(initProducts);
+
   }
   // el metodo output de product, lo recibo aqui
   // 'event' is the object that is emitted from the child component
