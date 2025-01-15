@@ -1,3 +1,5 @@
+import { CategoryProduct } from "./category-product.model";
+
 export interface Product {
   id: number;
   title: string;
@@ -5,4 +7,5 @@ export interface Product {
   price: number;
   images: string[];
   creationAt?: Date | string;
+  category?: CategoryProduct;
 }

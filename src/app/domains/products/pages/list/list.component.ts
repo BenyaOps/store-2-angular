@@ -10,7 +10,7 @@ import { ProductService } from '@app/domains/shared/services/product.service';
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, ProductComponent, NavbarComponent, HeaderComponent],
+  imports: [CommonModule, ProductComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
