@@ -22,13 +22,13 @@ export class ProductComponent {
     id: 0,
     title: '',
     price: 0,
-    images: []
+    images: ['']
   };
 
   @Output() addToCart = new EventEmitter(); //esta es la llave para comunicar cosas del hijo al padre
   id = Math.random() * 1000;
   addToCartHandler(event: any) {
-    console.log('add to cart: ', event);
+    console.log('addToCartHandler: ', event);
     //this.addToCart.emit("HOla message desde el hijo");
     this.addToCart.emit({
       //id: this.id,

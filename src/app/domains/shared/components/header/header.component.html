@@ -90,6 +90,7 @@
   </div>
   <div class="pt-4 flex flex-col">
     <div class="flex justify-between items-center space-y-2" *ngFor="let product of cart()">
+      <p>{{ product | json }}</p>
       <div class="flex space-y-2 items-center">
         <img [src]="product.images[0]" [alt]="product.title" class="h-6 w-6" />
         <h3>{{ product.title }}</h3>

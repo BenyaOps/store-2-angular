@@ -49,6 +49,9 @@ export default class ProductDetailComponent {
     const product = this.product(); // es necesario crear una variable para obtener el valor del signal
     // o tambien podemos decir, para suscribirse
     if (product) {
+      console.log('Add to cart:');
+      console.log(product);
+
       this.cartService.addToCart(product);
       return;
     }

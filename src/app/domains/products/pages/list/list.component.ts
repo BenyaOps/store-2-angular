@@ -48,9 +48,10 @@ export class ListComponent {
   // el metodo output de product, lo recibo aqui
   // 'event' is the object that is emitted from the child component
   fromProduct(event: any) {
-    console.log('event from product: ', event);
+    const product = event.product;
+    console.log('event from product: ', product);
     //this.productsCart.update((prevState) => [...prevState, event]);
-    this.cartService.addToCart(event);
+    this.cartService.addToCart(product);
   }
 
   productsInCart: Product[] = [];
@@ -61,7 +62,7 @@ export class ListComponent {
   private getProducts() {
     this.productService.getProduct(this.category_id).subscribe({
       next: (products) => {
-        console.log('Products fetched: ', products);
+        //console.log('Products fetched: ', products);
         this.products.set(products);
       },
       error: (error) => {
