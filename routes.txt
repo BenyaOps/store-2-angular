@@ -1,2 +1,2 @@
-/products/1
-/products/4
+/products/15
+/products/18

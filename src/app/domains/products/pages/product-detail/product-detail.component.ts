@@ -11,7 +11,7 @@ import { ProductService } from '@app/domains/shared/services/product.service';
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css'
 })
-export class ProductDetailComponent {
+export default class ProductDetailComponent {
 
   // una vez colocado withComponentInputBinding() en el app config, el id llega como un input
   @Input() id?: string;

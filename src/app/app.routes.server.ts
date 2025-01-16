@@ -1,8 +1,16 @@
-import { RenderMode, ServerRoute } from '@angular/ssr';
+import { PrerenderFallback, RenderMode, ServerRoute } from '@angular/ssr';
 
 export const serverRoutes: ServerRoute[] = [
   {
-    path: '**',
+    path: '',
+    renderMode: RenderMode.Server
+  },
+  {
+    path: 'about',
     renderMode: RenderMode.Prerender
+  },
+  {
+    path: '**',
+    renderMode: RenderMode.Client
   }
 ];
