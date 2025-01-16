@@ -44,7 +44,10 @@
         </li>
       </ul>
     </div>
-    <div class="flex items-center">
+    <div class="flex items-center relative">
+      <div class="w-5 h-5 text-center bg-black text-white square-flotante">
+        <span class="text-xs">{{ cart().length }}</span>
+      </div>
       <button class="px-4" (click)="toggleSideMenu()" >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +72,7 @@
   class="fixed border-l-4 top-0 right-0 bg-red z-40 w-72 h-screen p-4 overflow-y-auto transition-transform bg-white "
   [class.translate-x-full]="!hideSideMenu()"
 >
-  <div class="flex justify-between items-center">
+  <div class="flex justify-between items-center relative">
     <p class="text-xl">My Cart</p>
     <button (click)="toggleSideMenu()">
       <svg
@@ -90,7 +93,6 @@
   </div>
   <div class="pt-4 flex flex-col">
     <div class="flex justify-between items-center space-y-2" *ngFor="let product of cart()">
-      <p>{{ product | json }}</p>
       <div class="flex space-y-2 items-center">
         <img [src]="product.images[0]" [alt]="product.title" class="h-6 w-6" />
         <h3>{{ product.title }}</h3>

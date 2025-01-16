@@ -9,6 +9,7 @@ import { ProductService } from '@app/domains/shared/services/product.service';
 import { CategoriesService } from '@app/domains/shared/services/categories.service';
 import { Category } from '@app/domains/shared/models/category.model';
 import { RouterLinkWithHref } from '@angular/router';
+import { CounterComponent } from '@app/domains/shared/components/counter/counter.component';
 
 @Component({
   selector: 'app-list',
