@@ -10,11 +10,12 @@ import { CategoriesService } from '@app/domains/shared/services/categories.servi
 import { Category } from '@app/domains/shared/models/category.model';
 import { RouterLinkWithHref } from '@angular/router';
 import { CounterComponent } from '@app/domains/shared/components/counter/counter.component';
+import { HighlightDirective } from '@app/domains/shared/directives/highlight.directive';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [CommonModule, ProductComponent, RouterLinkWithHref],
+  imports: [CommonModule, ProductComponent, RouterLinkWithHref, HighlightDirective],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
